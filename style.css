@@ -1,34 +1,38 @@
-body {
-  margin: 0;
-  height: 100vh;
-  font-family: Arial, sans-serif;
-  transition: background 1s ease;
-}
+// alert for testing; remove later
+alert("JS loaded!");
 
-.overlay {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  text-align: center;
-}
+window.onload = function () {
 
-h1 {
-  font-size: 4rem;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  const gradients = [
+    ["#ff9a9e", "#fad0c4"],
+    ["#a18cd1", "#fbc2eb"],
+    ["#f6d365", "#fda085"],
+    ["#84fab0", "#8fd3f4"],
+    ["#fccb90", "#d57eeb"],
+    ["#30cfd0", "#330867"],
+    ["#5f2c82", "#49a09d"]
+  ];
 
-  /* drop shadow behind gradient text, slightly left */
-  text-shadow: -4px 2px 8px rgba(0, 0, 0, 0.6);
-}
+  const today = new Date();
+  const day = today.getDate();
+  const gradient = gradients[day % gradients.length];
 
-button {
-  margin-top: 20px;
-  padding: 12px 24px;
-  font-size: 1.2rem;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  background-color: white;
+  // Background gradient
+  document.body.style.background =
+    `linear-gradient(135deg, ${gradient[0]}, ${gradient[1]})`;
+
+  // Text gradient
+  const h1 = document.querySelector("h1");
+  if (h1) {
+    h1.style.background =
+      `linear-gradient(45deg, ${gradient[0]}, ${gradient[1]})`;
+    h1.style.webkitBackgroundClip = "text";
+    h1.style.webkitTextFillColor = "transparent";
+  }
+};
+
+// Play music on button click
+function playMusic() {
+  const audio = document.getElementById("audio");
+  audio.play();
 }
