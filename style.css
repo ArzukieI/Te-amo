@@ -19,12 +19,8 @@ h1 {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 
-  /* strong shadow behind gradient text */
-  text-shadow:
-    2px 2px 8px rgba(0,0,0,0.7),
-    -2px 2px 8px rgba(0,0,0,0.7),
-    2px -2px 8px rgba(0,0,0,0.7),
-    -2px -2px 8px rgba(0,0,0,0.7);
+  /* drop shadow behind gradient text, slightly left */
+  text-shadow: -4px 2px 8px rgba(0, 0, 0, 0.6);
 }
 
 button {
