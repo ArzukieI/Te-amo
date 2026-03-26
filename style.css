@@ -16,9 +16,6 @@ body {
 
 h1 {
   font-size: 4rem;
-  background: linear-gradient(45deg, yellow, orange);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 
 button {
