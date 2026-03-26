@@ -1,41 +1,44 @@
-alert("JS loaded!"); // for testing
+body {
+  margin: 0;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+  transition: background 1s ease;
+}
 
-window.onload = function () {
+.overlay {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+}
 
-  const gradients = [
-    ["#ff9a9e", "#fad0c4"],
-    ["#a18cd1", "#fbc2eb"],
-    ["#f6d365", "#fda085"],
-    ["#84fab0", "#8fd3f4"],
-    ["#fccb90", "#d57eeb"],
-    ["#30cfd0", "#330867"],
-    ["#5f2c82", "#49a09d"]
-  ];
+/* Gradient text with shadow behind */
+h1 {
+  font-size: 4rem;
+  position: relative;
+  display: inline-block;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 
-  const today = new Date();
-  const day = today.getDate();
-  const gradient = gradients[day % gradients.length];
+h1::before {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: -4px;                  /* shadow slightly left */
+  z-index: -1;                 /* behind main text */
+  color: rgba(0, 0, 0, 0.6);  /* shadow color */
+  filter: blur(8px);           /* soft blur */
+}
 
-  // background gradient
-  document.body.style.background =
-    `linear-gradient(135deg, ${gradient[0]}, ${gradient[1]})`;
-
-  // text gradient
-  const h1 = document.querySelector("h1");
-  if (h1) {
-    h1.style.background =
-      `linear-gradient(45deg, ${gradient[0]}, ${gradient[1]})`;
-    h1.style.webkitBackgroundClip = "text";
-    h1.style.webkitTextFillColor = "transparent";
-
-    // text shadow (visible on any background)
-    h1.style.textShadow =
-      "2px 2px 8px rgba(0,0,0,0.7), -2px 2px 8px rgba(0,0,0,0.7), 2px -2px 8px rgba(0,0,0,0.7), -2px -2px 8px rgba(0,0,0,0.7)";
-  }
-};
-
-// play music
-function playMusic() {
-  const audio = document.getElementById("audio");
-  audio.play();
+button {
+  margin-top: 20px;
+  padding: 12px 24px;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: white;
 }
