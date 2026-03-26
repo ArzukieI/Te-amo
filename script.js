@@ -1,4 +1,4 @@
-alert("JS loaded!"); // test if script is working
+alert("JS loaded!"); // remove later if you want
 
 window.onload = function () {
 
@@ -16,18 +16,22 @@ window.onload = function () {
   const day = today.getDate();
   const gradient = gradients[day % gradients.length];
 
+  // Background gradient
   document.body.style.background =
     `linear-gradient(135deg, ${gradient[0]}, ${gradient[1]})`;
 
+  // Text gradient + shadow
   const h1 = document.querySelector("h1");
   if (h1) {
     h1.style.background =
       `linear-gradient(45deg, ${gradient[0]}, ${gradient[1]})`;
     h1.style.webkitBackgroundClip = "text";
     h1.style.webkitTextFillColor = "transparent";
+    h1.style.textShadow = "2px 2px 8px rgba(0, 0, 0, 0.7)";
   }
 };
 
+// Music
 function playMusic() {
   const audio = document.getElementById("audio");
   audio.play();
