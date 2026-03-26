@@ -3,7 +3,7 @@ function playMusic() {
   audio.play();
 }
 
-// List of gradients (you can add more later)
+
 const gradients = [
   ["#ff9a9e", "#fad0c4"],
   ["#a18cd1", "#fbc2eb"],
